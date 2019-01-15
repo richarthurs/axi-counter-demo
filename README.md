@@ -6,8 +6,8 @@ An AXI-enabled counter with several interesting features.
 0. Ensure you have the Standard Setup described [here](https://github.com/richarthurs/rtl-ip)
 1. Clone this repo underneath `~/fpga/`. For a final path of: `~/fpga/axi-counter-demo`
 2. Open Vivado and expose the TCL console (there is a small button on the bottom left of the intro screen).
-3. In the Vivado TCL console, `cd fpga/axi-counter-demo`
-4. In the Vivado TCL console, `source setup.tcl`
+3. In the Vivado TCL console, `cd fpga`
+4. In the Vivado TCL console, `source setup.tcl`. Sourcing this script will regenerate the axi-counter-demo project files. 
 
 Wait a few seconds for the project to be re-created. 
  
