@@ -12,6 +12,7 @@ An AXI-enabled counter with several interesting features.
 Wait a few seconds for the project to be re-created. 
  
 5. Generate bitstream. Don't worry about the critical warnings about negative clock skew, this is a known issue with the board setup and isn't a problem in practice. 
+6. TODO: add the SDE project and demo application
 
 
 ## Updating the Project in Git
