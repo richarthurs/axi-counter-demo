@@ -6,9 +6,26 @@ An AXI-enabled counter with several interesting features.
 1. Clone this repo
 2. Open Vivado and open the project `.xpr` file in this repo. Don't worry about the warning messages that pop up. 
 3. In the Vivado TCL console, `cd fpga/axi-counter-demo`
-4. In the Vivado TCL console, `source axi-counter-demo-setup.tcl`
+4. In the Vivado TCL console, `source setup.tcl`
 
 Wait a few seconds for the project to be re-created. 
+ 
+5. Generate bitstream. Don't worry about the critical warnings about negative clock skew, this is a known issue with the board setup and isn't a problem in practice. 
 
-5. Right click the entry under Sources/Design sources/ and choose `Generate HDL Wrapper` in the block diagram view. Let Vivado manage it automatically. 
-6. Generate bitstream
+
+## Updating the Project in Git
+If you make significant changes to the project itself (and not to IP coming in from a library), you may need to regenerate the setup script. 
+
+1. In the TCL console: `cd fpga/axi-counter-demo`
+2. In the TCL console: `write_project_tcl setup.tcl -force`
+3. Inspect the TCL file header for any other files that need to be added to git. `git add` those file paths if any exist. 
+4. Commit changes. 
+
+## Pulling Updates
+If you pull and see changes to the `setup.tcl` file, you need to run the following commands to rebuild the project from the TCL file. 
+
+1. In the TCL console: `cd fpga/axi-counter-demo`
+2. In the TCL console: `source setup.tcl`
+
+
+
