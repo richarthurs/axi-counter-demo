@@ -11,8 +11,11 @@
 #include <sys/mman.h>
 #include <fcntl.h>
 #include <time.h>
-
+#include "ps7_init.h"
 int main(void){
+
+
+
 unsigned addr, offset;
 
 int reg_addr = 0x43c00000;

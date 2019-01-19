@@ -1,7 +1,7 @@
 //Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-//Date        : Mon Jan 14 14:38:57 2019
+//Date        : Fri Jan 18 09:06:39 2019
 //Host        : richard-Z87M-D3H running 64-bit Ubuntu 16.04.5 LTS
 //Command     : generate_target design_1_wrapper.bd
 //Design      : design_1_wrapper
@@ -31,7 +31,10 @@ module design_1_wrapper
     FIXED_IO_ps_clk,
     FIXED_IO_ps_porb,
     FIXED_IO_ps_srstb,
-    leds_0);
+    leds_0,
+    shield_i2c_scl_io,
+    shield_i2c_sda_io,
+    xclk_0);
   inout [14:0]DDR_addr;
   inout [2:0]DDR_ba;
   inout DDR_cas_n;
@@ -54,6 +57,9 @@ module design_1_wrapper
   inout FIXED_IO_ps_porb;
   inout FIXED_IO_ps_srstb;
   output [5:0]leds_0;
+  inout shield_i2c_scl_io;
+  inout shield_i2c_sda_io;
+  output xclk_0;
 
   wire [14:0]DDR_addr;
   wire [2:0]DDR_ba;
@@ -77,6 +83,15 @@ module design_1_wrapper
   wire FIXED_IO_ps_porb;
   wire FIXED_IO_ps_srstb;
   wire [5:0]leds_0;
+  wire shield_i2c_scl_i;
+  wire shield_i2c_scl_io;
+  wire shield_i2c_scl_o;
+  wire shield_i2c_scl_t;
+  wire shield_i2c_sda_i;
+  wire shield_i2c_sda_io;
+  wire shield_i2c_sda_o;
+  wire shield_i2c_sda_t;
+  wire xclk_0;
 
   design_1 design_1_i
        (.DDR_addr(DDR_addr),
@@ -100,5 +115,22 @@ module design_1_wrapper
         .FIXED_IO_ps_clk(FIXED_IO_ps_clk),
         .FIXED_IO_ps_porb(FIXED_IO_ps_porb),
         .FIXED_IO_ps_srstb(FIXED_IO_ps_srstb),
-        .leds_0(leds_0));
+        .leds_0(leds_0),
+        .shield_i2c_scl_i(shield_i2c_scl_i),
+        .shield_i2c_scl_o(shield_i2c_scl_o),
+        .shield_i2c_scl_t(shield_i2c_scl_t),
+        .shield_i2c_sda_i(shield_i2c_sda_i),
+        .shield_i2c_sda_o(shield_i2c_sda_o),
+        .shield_i2c_sda_t(shield_i2c_sda_t),
+        .xclk_0(xclk_0));
+  IOBUF shield_i2c_scl_iobuf
+       (.I(shield_i2c_scl_o),
+        .IO(shield_i2c_scl_io),
+        .O(shield_i2c_scl_i),
+        .T(shield_i2c_scl_t));
+  IOBUF shield_i2c_sda_iobuf
+       (.I(shield_i2c_sda_o),
+        .IO(shield_i2c_sda_io),
+        .O(shield_i2c_sda_i),
+        .T(shield_i2c_sda_t));
 endmodule

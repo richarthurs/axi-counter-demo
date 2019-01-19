@@ -10,3 +10,9 @@ set_property IOSTANDARD LVCMOS33 [get_ports {leds_0[2]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {leds_0[4]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {leds_0[1]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {leds_0[3]}]
+
+set_property PACKAGE_PIN R16 [get_ports shield_i2c_scl_io]
+set_property PACKAGE_PIN U12 [get_ports shield_i2c_sda_io]
+
+set_property PACKAGE_PIN U13 [get_ports xclk_0]
+set_property IOSTANDARD LVCMOS33 [get_ports xclk_0]
